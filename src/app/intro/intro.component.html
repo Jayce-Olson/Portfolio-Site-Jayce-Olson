@@ -1,0 +1,28 @@
+<main>
+
+    <div class="left-column">
+        <h1 class="dynamic-text">
+            Hi, I'm </h1>
+        <h2 class="dynamic-text"><span id="dynamicTyping" appTyped
+                [text]="['Jayce', 'a Software Developer', 'a Problem Solver']"></span></h2>
+        <p class="description" appLetterWiggle>I am an incredibly passionate and dedicated
+            person
+            looking
+            to become your next-best software developer!</p>
+
+        <div class="buttonIconsContainer">
+            <app-contact-button />
+            <app-icons />
+        </div>
+
+        <!-- <p class="test" appLetterWiggle>Test test hello world this is a test! WooHoo!!</p> -->
+
+    </div>
+
+    <div class="right-column">
+        <app-profile />
+        <!-- <img src="assets/imgs/profile.png" class="image" draggable="false"> -->
+        <!-- I will change the image to look better with the dark background -->
+    </div>
+
+</main>

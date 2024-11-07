@@ -1,0 +1,71 @@
+@property --memberRotation {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0 }
+  ul.team{
+    width: 80vmin;
+    list-style: none;
+    
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    animation: memberRotation 30s linear infinite;
+  
+    > li {
+      offset-path: border-box;
+      offset-distance: calc(100% / var(--member-count) * var(--member-idx) + (var(--memberRotation) * 100%));
+      width: calc(100% / (1 + (1 / sin(180deg / var(--member-count)))));
+      position: relative;
+      > img {
+        position: absolute;
+        width: 100%;
+        border: 5px solid #1E90FF;
+        scale: .8;
+        
+      aspect-ratio: 1/1;  
+        object-fit: cover;
+        border-radius: 50%;
+        rotate: calc(-360deg / var(--member-count) * var(--member-idx) - (360deg * var(--memberRotation)))
+      }
+    }
+    &:has(img:hover){
+      
+    }
+  }
+  
+  @keyframes memberRotation {
+    to { --memberRotation: 1 }
+  }
+
+  img {
+    transition: transform 1s ease-in;  
+  }
+  
+  img:hover {
+    transform: scale(1.25);
+    transition: transform 0.5s ease-out;  
+  }
+  
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: cursive;
+}
+
+  .left-column {
+    max-width: 50%;
+    padding-right: 2rem;
+}
+
+.right-column {
+    width:50%;
+    display: flex;             
+    justify-content: center;    
+    align-items: center;
+}

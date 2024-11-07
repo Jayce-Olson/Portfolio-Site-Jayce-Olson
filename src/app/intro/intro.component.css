@@ -1,0 +1,120 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: cursive;
+}
+
+p{
+    white-space: normal;      
+    overflow-wrap: break-word;
+}
+/* The above and below are to stop the words from wrapping to the next line in the middle of the word. Since the characters are wrapped in spans I had this 
+   problem. I wrapped the word in paragraph tags and then had the below css applied to the child paragraphs of the main paragraph tag */
+p > p{
+    white-space: nowrap;
+    display: inline; 
+  margin: 0; 
+  padding: 0;
+}
+
+.left-column {
+    max-width: 50%;
+    padding-right: 2rem;
+}
+
+.dynamic-text {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+}
+
+.description {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    max-width: 80%;
+}
+
+.contact {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact:hover {
+    background-color: darken(var(--accent-color), 10%);
+    transform: translateY(-2px);
+}
+
+.right-column {
+    width:50%;
+    display: flex;             
+    justify-content: center;    
+    align-items: center;
+}
+
+
+.image {
+    width: 15rem; 
+    height: 15rem; 
+    border-radius: 50%; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.test{
+    font-size: 3rem;
+}
+
+[appLetterWiggle] span {
+    display: inline-block;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.jump-animation {
+    animation: jump 0.5s forwards;
+}
+
+.buttonIconsContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+/* 
+
+This was the easier way but I didn't like the way it looked
+
+span {
+    display: inline-block;
+    font-size: 3rem;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+span:hover {
+    transform: translateY(-1rem);
+}
+
+span:not(:hover) {
+    transform: translateY(0);
+} */
