@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { LetterWiggleDirective } from '../../directives/letter-wiggle.directive';
 
-
 @Component({
-  selector: 'app-tech-stack',
+  selector: 'app-projects',
   standalone: true,
   imports: [LetterWiggleDirective],
-  templateUrl: './tech-stack.component.html',
-  styleUrl: './tech-stack.component.css'
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.css'
 })
-export class TechStackComponent {
+export class ProjectsComponent {
 
 }

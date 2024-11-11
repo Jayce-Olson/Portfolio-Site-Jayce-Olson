@@ -1,0 +1,81 @@
+.contact-section {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--background-color, #f5f5f5); /* light background */
+    color: var(--text-color, #333); /* dark text */
+    border-top: 2px solid var(--accent-color, #3051bf); /* optional accent border */
+}
+
+h2 > p > span {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--header-color);
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    white-space: normal;      
+    overflow-wrap: break-word;
+}
+
+.contact-info {
+    margin-bottom: 1.5rem;
+}
+
+.contact-info a {
+    display: block;
+    font-size: 1rem;
+    margin: 0.5rem;
+    color: var(--accent-color, #3051bf);
+    text-decoration: none;
+}
+
+.container {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+}
+
+h2 > p{
+    white-space: nowrap;
+    display: inline; 
+  margin: 0; 
+  padding: 0;
+}
+
+/* The above and below are to stop the words from wrapping to the next line in the middle of the word. Since the characters are wrapped in spans I had this 
+   problem. I wrapped the word in paragraph tags and then had the below css applied to the child paragraphs of the main paragraph tag */
+p > p {
+    white-space: nowrap;
+    display: inline; 
+  margin: 0; 
+  padding: 0;
+}
+
+[appLetterWiggle] span {
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.jump-animation {
+    animation: jump 0.5s forwards;
+}
+  

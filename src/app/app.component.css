@@ -2,10 +2,13 @@
     --background-color: #252525;
     --text-color: #F0F0F0;       
     --accent-color: #3051bf;     
+    --header-color: #506ccf;
 }
+
 
 body{
     font-family:cursive;
+    background-color: var(--background-color);
 }
 
 [appLetterWiggle] span {
@@ -29,3 +32,31 @@ body{
 .jump-animation {
     animation: jump 0.5s forwards;
 }
+
+h1{
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+h1 > p > span{
+    color: var(--header-color);
+    font-weight: bold;
+    font-family: cursive;
+}
+
+h1 > p{
+    white-space: nowrap;
+    display: inline; 
+  margin: 0; 
+  padding: 0;
+  }
+  
+  /* The above and below are to stop the words from wrapping to the next line in the middle of the word. Since the characters are wrapped in spans I had this 
+   problem. I wrapped the word in paragraph tags and then had the below css applied to the child paragraphs of the main paragraph tag */
+  p > p{
+    white-space: nowrap;
+    display: inline; 
+  margin: 0; 
+  padding: 0;
+  }
+  

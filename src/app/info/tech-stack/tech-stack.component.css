@@ -52,14 +52,17 @@
   }
   
 
-  main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4rem;
+  main{
+    padding: 2rem;
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: cursive;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
   .left-column {
@@ -72,4 +75,54 @@
     display: flex;             
     justify-content: center;    
     align-items: center;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: justify;
+  letter-spacing: 0.5px;
+  color: var(--text-color);    
+  overflow-wrap: break-word;
+  white-space: wrap;
+}
+
+
+p > p > p{
+  white-space: nowrap;
+  display: inline; 
+margin: 0; 
+padding: 0;
+}
+
+/* The above and below are to stop the words from wrapping to the next line in the middle of the word. Since the characters are wrapped in spans I had this 
+ problem. I wrapped the word in paragraph tags and then had the below css applied to the child paragraphs of the main paragraph tag */
+p > p{
+  white-space: wrap;
+  display: inline-block; 
+margin: 0; 
+padding: 0;
+}
+
+[appLetterWiggle] span {
+  display: inline-block;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+@keyframes jump {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-1rem);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.jump-animation {
+  animation: jump 0.5s forwards;
 }

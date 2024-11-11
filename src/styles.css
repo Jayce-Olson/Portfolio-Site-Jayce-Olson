@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+:host {
+    --background-color: #252525;
+    --text-color: #F0F0F0;       
+    --accent-color: #3051bf;     
+}
+
+html{
+    background-color: #252525;
+    font-family: cursive;
+}
