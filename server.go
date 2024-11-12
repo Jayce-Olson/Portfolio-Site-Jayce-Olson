@@ -16,6 +16,11 @@ type ContactRequest struct {
 }
 
 func handleContactRequest(write http.ResponseWriter, req *http.Request) { // The req object is the request from the client. The write object is used to write a response back to the client.
+
+	write.Header().Set("Access-Control-Allow-Origin", "https://localhost:4200") // Allows requests from specified origin
+	write.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+	write.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	if req.Method != http.MethodPost { // .Method accesses the method part of the request (Whether it is Get/Post/Whatever else ther is)
 		http.Error(write, "Only POST is allowed", http.StatusMethodNotAllowed) // If the Method is not Post (In this situation I am looking to recieve contact data) http.error is called to return an error to the client.
 		// http.Error takes three parameters: Error(w http.ResponseWriter, error string, code int)
@@ -57,9 +62,10 @@ func handleContactRequest(write http.ResponseWriter, req *http.Request) { // The
 	}
 	// Handle email sending and backup here
 	// ...
+	log.Println(request)
 
 	write.WriteHeader(http.StatusOK)               // Write back a 200 code saying basically saying "we good" to the client
-	fmt.Fprintf(write, "Contact request received") // This formats the write object with the header of "Contact request received"
+	fmt.Fprintf(write, "Contact request received") // This formats the write object with the header of "Contact request received". This was trippy to me at first too because the word "print" made me think it printed something, but it doesn't, it just formats it.
 	// This was also quite trippy to me. I assumed there would be something to call in order to send the write object back to the client but
 	// apparently when the handler function ends, the write object response if automatically sent back to the client, there is apparently no
 	// need for manually sending it back to the client. This is a neat language and library, definelty different from what i'm used to. I

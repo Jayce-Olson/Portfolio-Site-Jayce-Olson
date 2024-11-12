@@ -1,6 +1,7 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LetterWiggleDirective } from '../../directives/letter-wiggle.directive';
+import { ContactFormService } from '../../services/contact-form.service';
 
 @Component({
   selector: 'app-anchor',
@@ -11,7 +12,12 @@ import { LetterWiggleDirective } from '../../directives/letter-wiggle.directive'
 })
 export class AnchorComponent {
   
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {} // I added this to check browser status
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private contactFormService: ContactFormService) {} // I added this to check browser status
+
+
+  openContact(){
+    this.contactFormService.openContact(true); 
+  }
 
   /* This code comes from code pen. I changed it slightly to work with Typescript and add a TON of comments so I could understand how it works
      Here is the link: https://codepen.io/jh3y/pen/GRapZqO.
@@ -19,6 +25,7 @@ export class AnchorComponent {
      as the browser supports anchoring, this code is not needed...
   */
   ngAfterViewInit(){
+
     if (isPlatformBrowser(this.platformId)) { // I added this as well to check is the a browser is being used, this is mainly for errors when the code is being executed server-side (such as during the bild process - vite was causing errors)
     /* The code below evaluates to true or false based off of wether or not anchorName can be found as an attribute of document.documentElement.style */
     const supportsAnchorPos = "anchorName" in document.documentElement.style;
