@@ -8,17 +8,18 @@
         <form (ngSubmit)="submit()" #contactForm="ngForm">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" (ngModel)="contactData.name" required />
+                <input type="text" id="name" name="name" [(ngModel)]="contactData.name" required />
+                <!-- I am getting an error here but nowhere else and it works... -->
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" (ngModel)="contactData.email" required />
+                <input type="email" id="email" name="email" [(ngModel)]="contactData.email" required />
             </div>
 
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" rows="4" (ngModel)="contactData.name" required></textarea>
+                <textarea id="message" rows="4" name="message" [(ngModel)]="contactData.message" required></textarea>
             </div>
 
             <button type="submit">Submit</button>

@@ -522,10 +522,10 @@ a.tag,
 }
 
 /* `grid-item` Container Queries */
-@media screen and (min-width: 600px),
+/* @media screen and (min-width: 600px),
 @container grid-item (min-width: 300px) {	
 	.tags--container { flex-wrap: nowrap;	}
-}
+} */
 
 @container grid-item (min-width: 360px) {
 	.grid--item {
@@ -544,11 +544,11 @@ a.tag,
 /*  */
 
 /* MEDIA QUERIES */
-:root {
+/* :root {
 	@media screen and (min-width: 800px) { --grid-item--min-width--constraint: 360px; }
-}
+} */
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
 	.grid--item {
 		&:hover {
 			.tags--container {
@@ -562,7 +562,7 @@ a.tag,
 			}			
 		}
 	}
-}
+} */
 /*  */
 
 /* ANIMATIONS */

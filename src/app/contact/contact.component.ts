@@ -16,7 +16,7 @@ import { NgModule } from '@angular/core';
 })
 export class ContactComponent {
   visible: boolean = false;
-  serverUrl: string = "https://localhost:443/contact"
+  serverUrl: string = "http://localhost/contact" // http for testing
   contactData = {
     name: '',
     email: '',
@@ -37,6 +37,7 @@ export class ContactComponent {
   }
 
   submit() {
+    console.log(this.contactData);
     this.httpClient.post<any>(this.serverUrl, this.contactData).subscribe(
       (response:any) => {
         console.log('Form submitted successfully:', response);
