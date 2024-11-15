@@ -2,7 +2,7 @@
 
 I'm open to feedback and suggestions to improve this project. Feel free to reach out!
 
-You can view the website at JayceOlson.com
+You can view the website at [JayceOlson.com](JayceOlson.com)
 
 ## Tech stack
 
