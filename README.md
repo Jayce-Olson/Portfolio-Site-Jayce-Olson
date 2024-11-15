@@ -1,25 +1,23 @@
 # Hello! This is the repository for my portfolio website!
 
-Please feel free to contact me with any suggestions for how I can improve it. Enjoy!
+I'm open to feedback and suggestions to improve this project. Feel free to reach out!
 
 You can view the website at JayceOlson.com
 
 ## Tech stack
 
-This website uses Angular and TypeScript for the frontend, while the backend is driven by Go.
+The frontend of this website is built with Angular and TypeScript, while the backend is run using Go.
 
 ## Info
 
-This website took me upwards of 150 hours to build. This was mainly due the multiple versions I created, this final website is one of four other portfolios that
-I have created.
+This website took over 150 hours to build, primarily due to the multiple versions created during the process. This final version is one of four portfolio designs developed along the way.
 
-Some of the components/effects on the website were discovered on codepen and were modified. I have links to the original components within the code and will link them
-below
+Some components and effects were adapted from CodePen examples. The original resources are credited below and within the code.
 
 ## Resources
 
-Anchor Magnet Slide Menu - https://codepen.io/jh3y/pen/GRapZqO
+Below are the CodePen examples that inspired certain components or effects on my website. They were adapted to suit my design and functionality needs:
 
-Animated offset-path - https://codepen.io/MarkBoots/pen/KKOZYEj
-
-Simple `grid` with reveal + resize on `hover` - https://codepen.io/mandynicole/pen/xxNYMLj
+- **Anchor Magnet Slide Menu:** [CodePen by jh3y](https://codepen.io/jh3y/pen/GRapZqO)
+- **Animated Offset-Path:** [CodePen by Mark Boots](https://codepen.io/MarkBoots/pen/KKOZYEj)
+- **Simple Grid with Reveal + Resize on Hover:** [CodePen by mandynicole](https://codepen.io/mandynicole/pen/xxNYMLj)
