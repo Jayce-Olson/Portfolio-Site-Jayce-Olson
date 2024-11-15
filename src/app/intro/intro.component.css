@@ -119,3 +119,9 @@ span:hover {
 span:not(:hover) {
     transform: translateY(0);
 } */
+
+@media (max-width: 800px) {
+    .mobile {
+      display: none;
+    }
+  }
