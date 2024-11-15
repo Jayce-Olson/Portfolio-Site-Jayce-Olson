@@ -18,8 +18,9 @@ func SendTelegramMessage(botToken string, chatID string, message string) error {
 		"chat_id": chatID,  // The reason this is being put in a dictionary/map is because the telegram api expects json data (it will access "chat_id" and "text")
 		"text":    message, // Also apparently in Go, maps can be easily converted to Json. Another thing I like about Go. Exibit A below:
 	}
+	// Below returns an encoded byte slice and and err
 	payloadBytes, err := json.Marshal(payload) // Exibit A - you can also apparently return multiple values in Go which is cool
-	if err != nil {
+	if err != nil {                            // Check for error
 		return err
 	}
 
