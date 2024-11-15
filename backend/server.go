@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -67,9 +68,14 @@ func handleContactRequest(write http.ResponseWriter, req *http.Request) { // The
 		http.Error(write, "Invalid request", http.StatusBadRequest)
 		return
 	}
-	// Handle email sending and backup here (Where I am going to put thing logic to process the data from the post)
-	// ...
-	log.Println(request.Email)
+
+	// message, err := json.Marshal(request) // I am converting request to json so that I can convert it to a string to send to the Telegram function
+	// if err != nil {
+	// 	return
+	// }
+	message := fmt.Sprintf("Email: %s\nName: %s\nMessage: %s", request.Email, request.Name, request.Message) // I am formatting the message I will send myself via Telegram
+	log.Println(message)
+	log.Println(SendTelegramMessage(message)) // Call my function from another file that takes a string for the message. I also print the returned value in case of errors
 
 	write.WriteHeader(http.StatusOK) // Write back a 200 code saying basically saying "we good" to the client
 	// fmt.Fprintf(write, "Contact request received") // This formats the write object with the header of "Contact request received". This was trippy to me at first too because the word "print" made me think it printed something, but it doesn't, it just formats it.

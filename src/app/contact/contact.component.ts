@@ -14,7 +14,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class ContactComponent {
   visible: boolean = false;
-  serverUrl: string = "https://jayceolson.com/contact" // http for testing
+  serverUrl: string = "http://localhost/contact" // http for testing
   contactData = {
     name: '',
     email: '',

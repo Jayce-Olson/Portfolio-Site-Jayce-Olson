@@ -41,7 +41,7 @@
 	
 	/* Grid Settings */
 	/* https://css-tricks.com/an-auto-filling-css-grid-with-max-columns + a flexible min-width */
-  --grid-column-count: 5;
+  --grid-column-count: 4;
 	
 	--grid-gap: .5rem;
 	--grid-gap-count: calc(var(--grid-column-count) - 1);

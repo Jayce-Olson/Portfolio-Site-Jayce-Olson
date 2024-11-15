@@ -8,4 +8,9 @@
 html{
     background-color: #252525;
     font-family: cursive;
+    overflow-x: hidden;
 }
+
+body {
+    overflow-x: hidden;
+  }
