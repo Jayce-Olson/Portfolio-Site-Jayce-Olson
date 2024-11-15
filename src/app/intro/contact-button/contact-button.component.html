@@ -1,4 +1,4 @@
-<button class="btn-53" (click)="openContact();">
+<button *ngIf="!confirmed" class="btn-53" (click)="openContact();">
     <div class="original">Contact</div>
     <div class="letters">
         <span>C</span>
@@ -8,5 +8,19 @@
         <span>A</span>
         <span>C</span>
         <span>T</span>
+    </div>
+</button>
+
+<!-- I was going to have an entirely seperate confirmation message/animation but decided against it
+instead I will just briefly turn the button green. That is why this is done in a slightly complex way, it
+is however setup to display something entirely different if needed though -->
+<button *ngIf="confirmed" class="btn-53" style="background-color: #39D353 !important; color: #F0F0F0!important;">
+    <div class="originalConfirm">Sent!</div>
+    <div class="letters">
+        <span>S</span>
+        <span>E</span>
+        <span>N</span>
+        <span>T</span>
+        <span>!</span>
     </div>
 </button>

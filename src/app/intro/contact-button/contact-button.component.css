@@ -9,6 +9,7 @@
   border: 0 solid;
   box-sizing: border-box;
 }
+
 .btn-53 {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: button;
@@ -25,6 +26,7 @@
   -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
 }
+
 .btn-53:disabled {
   cursor: default;
 }
@@ -58,6 +60,22 @@
   position: absolute;
   transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
 }
+
+.btn-53 .originalConfirm{
+  background: #39D353;
+  color:#252525;
+  font-size: 1rem;
+  display: grid;
+  inset: 0;
+  place-content: center;
+  position: absolute;
+  transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+/* .btn-53:hover .originalConfirm {
+  transform: translateY(100%);
+} */
+
 .btn-53:hover .original {
   transform: translateY(100%);
 }

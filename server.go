@@ -16,7 +16,16 @@ type ContactRequest struct {
 
 func handleContactRequest(write http.ResponseWriter, req *http.Request) { // The req object is the request from the client. The write object is used to write a response back to the client.
 
-	//log.Println(req)
+	// Below sets the cors policy settings
+	write.Header().Set("Access-Control-Allow-Origin", "http://localhost:4200")
+	write.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+	write.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	// Handle preflight OPTIONS request. Sometimes a "preflight" is sent over for cors "options" this checks for that and sends a response with the settings
+	if req.Method == "OPTIONS" {
+		write.WriteHeader(http.StatusOK)
+		return
+	}
 
 	if req.Method != http.MethodPost { // .Method accesses the method part of the request (Whether it is Get/Post/Whatever else ther is)
 		http.Error(write, "Only POST is allowed", http.StatusMethodNotAllowed) // If the Method is not Post (In this situation I am looking to recieve contact data) http.error is called to return an error to the client.
@@ -72,43 +81,19 @@ func handleContactRequest(write http.ResponseWriter, req *http.Request) { // The
 	// do like Golang though.
 }
 
-func corsMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Set CORS headers
-		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:4200")
-		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-
-		// Handle preflight OPTIONS request
-		if r.Method == "OPTIONS" {
-			w.WriteHeader(http.StatusOK)
-			return
-		}
-
-		// Pass to the next handler if it's not an OPTIONS request
-		next.ServeHTTP(w, r)
-	})
-}
-
 func main() {
-
-	mux := http.NewServeMux()
-	mux.HandleFunc("/contact", handleContactRequest) // registers new route "/contact" and calls the callback function when a request is made (handleContactRequest)
-	httpServer := corsMiddleware(mux)
-
 	// The line below calls a function from the http library that takes two parameters, an endpoint of type string, and a function.
 	// HandleFunc will execute the passed through function whenever a request is made to the passed through endpoint. The passed through
 	// function will get the request and write parameters.
-	// http.HandleFunc("/contact", handleContactRequest)
-	// Below just logs that the server was started
-	// go func() { // I am running the server on port 443 on a new thread so I can run http on a seperate thread for testing. I love go's concurrency <3
-	// 	log.Println("Server started on port 443")
-	// 	// Below logs and starts a server listening on port 443, passes through the paths to the TLS certificate and key. The last argument is for a custom http handler.
-	// 	// Passing through nil defaults the handler to what I passed through HandleFunc
-	// 	// log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", httpServer)) // HTTPS enabled server
-	// }()
+	http.HandleFunc("/contact", handleContactRequest)
+	go func() { // I am running the server on port 443 on a new thread so I can run http and https on seperate threads for testing. I love go's built in concurrency <3
+		log.Println("Server started on port 443")
+		// Below logs and starts a server listening on port 443, passes through the paths to the TLS certificate and key. The last argument is for a custom http handler.
+		// Passing through nil defaults the handler to what I passed through HandleFunc
+		// log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", httpServer)) // HTTPS enabled server
+	}()
 
 	log.Println("Starting HTTP server on port 80")
 	// log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", httpServer)) // Once I have certificates I will use this
-	log.Fatal(http.ListenAndServe(":80", httpServer)) // use this for testing
+	log.Fatal(http.ListenAndServe(":80", nil)) // use this for testing
 }
