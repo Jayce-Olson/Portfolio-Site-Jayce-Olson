@@ -12,6 +12,8 @@ The frontend of this website is built with Angular and TypeScript, while the bac
 
 This website took over 150 hours to build, primarily due to the multiple versions created during the process. This final version is one of four portfolio designs developed along the way.
 
+The front and backend are both hosted on an AWS Ec2 instance.
+
 Some components and effects were adapted from CodePen examples. The original resources are credited below and within the code.
 
 ## Resources
